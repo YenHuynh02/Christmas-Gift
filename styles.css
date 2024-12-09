@@ -1,0 +1,373 @@
+:root {
+    --maincolor: #efc092;
+    --antlerColor: #563107;
+    --pink: palevioletred;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgb(234, 67, 95), rgb(255, 239, 239));
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.form {
+    position: relative;
+    background: pink;
+    width: 400px;
+    height: 500px;
+    border-radius: 50px;
+    box-shadow: 10px 10px rgb(146, 117, 117);
+}
+    .reindeer
+        .ears {
+            position: absolute;
+            top: -40px;
+            background-color: var(--maincolor);
+            width: 80px;
+            height: 50px;
+            border-radius: 150px 0 150px 0;
+            z-index: 0;
+            animation: ears 2s infinite linear;
+        }
+
+        .ears:after {
+            content: "";
+            width: 50px;
+            height: 30px;
+            position: absolute;
+            z-index: 0;
+            top: 8px;
+            left: 20px;
+            border-radius: 150px 0 150px 0;
+            transform: rotate(-176deg);
+            background-color: #fee2d2;
+        }
+
+        .ears-left {
+            left: 115px;
+            transform: rotate(20deg);
+        }
+
+        .ears-right {
+            right: 115px;
+            transform: rotate(20deg);
+        }
+
+        @keyframes ears {
+            0% {transform: rotate(20deg);}
+            50% {transform: rotate(35deg);}
+            100% {transform: rotate(20deg);}
+        }
+
+        .reindeerHead {
+            position: absolute;
+            left: 50%;
+            background: var(--maincolor);
+            width: 100px;
+            height: 90px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .reindeerHead:before,
+        .reindeerHead:after {
+            content: '';
+            width: 79px;
+            height: 50px;
+            position: absolute;
+            top: 40px;
+            background-color: var(--maincolor);
+            border-radius: 50%;
+        }
+
+        .reindeerHead:before {
+            left: -7px;
+            transform: rotate(50deg);
+        }
+
+        .reindeerHead:after {
+            right: -7px;
+            transform: rotate(-50deg);
+        }
+
+            .eyes {
+                position: relative;
+                width: 20px;
+                height: 20px;
+                background: #000;
+                border-radius: 50%;
+                top: 45px;
+                left: 23px;
+                z-index: 9999;
+                box-shadow: 33px 0px 0px #000;
+            }
+
+            .circle1 {
+                position: absolute;
+                top: 2px;
+                left: 1px;
+                width: 12px;
+                height: 8px;
+                box-shadow: 21px 25px 0 white;
+                background-color: white;
+                border-radius: 50%;
+                transform: rotate(-50deg);
+                z-index: 9999;
+            }
+
+            .circle2 {
+                position: absolute;
+                top: 12px;
+                left: 10px;
+                background-color: white;
+                width: 5px;
+                height: 3px;
+                box-shadow: 21px 25px 0 white;
+                transform: rotate(-50deg);
+                border-radius: 50%;
+                z-index: 9999;
+            }
+
+            .eyes:after {
+                content: '';
+                width: 82px;
+                height: 40px;
+                background-color: var(--maincolor);
+                position: absolute;
+                top: -45px;
+                left: -14px;
+                border-radius: 50%;
+            }
+            
+            .mouth {
+                position: absolute;
+                top: 20px;
+                left: 170px;
+                width: 60px;
+                height: 35px;
+                border-radius: 50%;
+                background-color: #fee2d2;
+            }
+
+            .nose {
+                position: absolute;
+                top: 20px;
+                left: 195px;
+                background-color: red;
+                width: 15px;
+                height: 10px;
+                border-radius: 50%;
+                z-index: 9999;
+            }
+
+            .antler-inner, .antler-outter {
+                background-color: var(--antlerColor);
+                width: 25px;
+                height: 7px;
+                z-index: 9999;
+                border-radius: 20px;
+            }
+
+                .inner-left {
+                    position: absolute;
+                    top: -45px;
+                    left: 175px;
+                    transform: rotate(50deg);
+                
+                }
+
+                .outter-left:before, :is(.inner-left, .outter-left):after {
+                    content: '';
+                    width: 25px;
+                    height: 7px;
+                    position: absolute;
+                    top: -5px;
+                    left: -18px;
+                    border-radius: 20px;
+                    background-color: var(--antlerColor);
+                    transform: rotate(30deg);
+                }
+
+                .inner-right {
+                    position: absolute;
+                    top: -45px;
+                    right: 175px;
+                    transform: rotate(-50deg);
+                }
+
+                .outter-right:before, :is(.inner-right, .outter-right):after {
+                    content: '';
+                    width: 25px;
+                    height: 7px;
+                    position: absolute;
+                    top: -5px;
+                    right: -18px;
+                    border-radius: 20px;
+                    background-color: var(--antlerColor);
+                    transform: rotate(-30deg);
+                }
+
+            .antler-outter {
+                width: 50px;
+                z-index: -1;
+            }
+
+                .outter-left {
+                    position: absolute;
+                    top: -55px;
+                    left: 135px;
+                    transform: rotate(50deg);
+                }
+
+                .outter-left:before {
+                    transform: rotate(50deg) translate(12px,-20px);
+                }
+
+                .outter-right {
+                    position: absolute;
+                    top: -55px;
+                    right: 135px;
+                    transform: rotate(-50deg);
+                }
+
+                .outter-right:before {
+                    transform: rotate(-50deg) translate(-12px, -20px);
+                }   
+
+            .info {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 400px;
+                height: 500px;
+            }
+
+                #startButton {
+                    font-size: larger;
+                    width: 200px;
+                    height: 150px;
+                    z-index: 9999;
+                    border-radius: 20px;
+                    color: var(--pink);
+                    background-color: white;
+                    border: none;
+                    animation: btn 2s infinite ease;
+                    display: none;
+                }
+
+                @keyframes btn {
+                    0% {
+                        transform: scale(1.0);
+                    }
+
+                    50% {
+                        transform: scale(1.1);
+                    }
+
+                    100% {
+                        transform: scale(1.0);
+                    }
+                }
+
+                .section
+                    #chatbox {
+                        position: absolute;
+                        top: 70px;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        width: 90%;
+                        height: 80px;
+                        border-radius: 20px;
+                        border: 2px outset var(--pink);
+                        background-color: white;
+                        display: flex;
+                        align-items: center;
+                        overflow: hidden;
+                    }
+
+                        #text {
+                            font-size: 18px;
+                            align-items: center;
+                            margin: 0 10px;
+                        }
+
+                    #part1 {
+                        position: absolute;
+                        top: 180px;
+                        left: 0;
+                        right: 0;
+                        margin: 0 auto;
+                        width: 90%;
+                    }
+                        #form {
+                            display: none;
+                            flex-wrap: wrap;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            height: 120px;
+                        }
+
+                            #name {
+                                color: var(--pink);
+                                border: 2px outset var(--pink);
+                                width: 100%;
+                                height: 50px;
+                                border-radius: 15px 2px;
+                                text-align: center;
+                            }
+
+                            #name:focus {
+                                outline: none;
+                                border-color: rgb(142, 142, 189);
+                            }
+
+                            #name:focus::placeholder {
+                                color: var(--pink);
+                            }
+
+/*-------------------------------------------------------------- */
+                /* Page navigation */
+                .sectionPage {
+                    position: absolute;
+                    bottom: 10px;
+                    width: 100%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+
+                    .sectionPage button {
+                        margin: 0 20px;
+                        width: 90px;
+                        height: 50px;
+                        border-radius: 10px;
+                        border: 2px outset var(--pink);
+                    } 
+
+                    .sectionPage button:focus {
+                        background-color: rgb(234, 67, 95);
+                        color: white;
+                        outline: none;
+                    }
+
+                    .sectionPage button i {
+                        transform: translateY(1px);
+                    }
+
+                    .sectionPage button:focus i {
+                        color: white !important;
+                        background-color: transparent;
+                    }
