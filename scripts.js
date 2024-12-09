@@ -8,6 +8,7 @@ const formScene2 = getId('form');
 const startButton = getId('startButton');
 const prevButton = getId('prev');
 const nextButton = getId('next');
+const nameInput = getId('name');
 let currentIndexMSG = 0;
 const msgSpeed = Math.random() * (100 - 40) + 40;
 
@@ -34,6 +35,26 @@ const getGreeting = (language) => {
             return "Chào cậu";
         }
     }
+}
+
+const retrieveName = () => {
+    const name = nameInput.value;
+    return name;
+}
+
+const handleForm = (event) => {
+    event.preventDefault();
+
+    if (msg[currentIndexMSG + 1]?.status === 'scene3') {
+        msg[currentIndexMSG + 1].ai = `Hello ${retrieveName()}, How are you?`;
+    }
+
+    else {
+        msg.push({ ai: `Hi ${retrieveName()}, How are you?`, status: 'scene3' });
+    }
+
+    currentIndexMSG++;
+    displayMSG();
 }
 
 const msg = [
@@ -103,7 +124,7 @@ const displayMSG = () => {
     else nextButton.style.visibility = 'visible';
     typeMSG(msg[currentIndexMSG].ai, textInChatbox, msgSpeed, () => {
         /*Display the form in scene 2 when the message display the last element of index */
-        if (currentIndexMSG === msg.length - 1 && msg[currentIndexMSG].status === 'scene2') formScene2.style.display = 'flex';
+        if (msg[currentIndexMSG].status === 'scene2') formScene2.style.display = 'flex';
     })
 };
 
@@ -121,6 +142,10 @@ displayMSG();
         if (currentIndexMSG > 0) {
             currentIndexMSG--;
             displayMSG();
+
+            if (msg[currentIndexMSG].status === 'scene2') {
+                nameInput.value = retrieveName();
+            }
         }
     });
 })
